@@ -1,5 +1,13 @@
 import React, {Component} from 'react';
-import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
+import {
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  View,
+} from 'react-native';
+
+const image = {uri: 'https://wallpaperaccess.com/full/467343.png'};
 
 class App extends Component {
   state = {
@@ -14,10 +22,13 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ImageBackground
+        source={image}
+        resizeMode="cover"
+        style={styles.container}>
         <View style={styles.content}>
           <View style={styles.textContainer}>
-            <Text>You clicked = {this.state.count} times</Text>
+            <Text>Hello world : {this.state.count} times</Text>
           </View>
           <TouchableOpacity style={styles.button} onPress={this.onPress}>
             <Text>Click me</Text>
@@ -26,7 +37,7 @@ class App extends Component {
         <View style={styles.footer}>
           <Text>bhuwanjung115@icloud.com</Text>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -34,7 +45,6 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -42,13 +52,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'transparent',
   },
   textContainer: {
     marginBottom: 50,
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'green',
     padding: 10,
     marginBottom: 10,
   },
@@ -56,4 +67,5 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
+
 export default App;
